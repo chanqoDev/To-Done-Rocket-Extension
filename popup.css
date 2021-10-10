@@ -4,55 +4,59 @@ body {
 }
 
 .greeting img {
-     position:absolute;
-     height: 180px;
+    position: absolute;
+    height: 180px;
     z-index: 10;
     top: -50px;
     right: -50px;
 }
+
 .greeting__type {
     color: #2f2f2f;
     font-weight: 400;
     margin-bottom: 0;
     font-size: 1.8rem;
 }
+
 .greeting__name {
     color: #6c757d;
     font-size: 1.5rem;
 }
+
 .progressContainer {
     display: flex;
     justify-content: center;
 }
+
 #container {
     width: 140px;
     height: 140px;
     position: relative;
-  }
-.actionInput__inputContainer .input-group-lg > .form-control {
+}
+
+.actionInput__inputContainer .input-group-lg>.form-control {
     border: 3px solid rgba(151, 151, 151, 0.271416);
     background: #F6F6F6;
     height: 60px;
     border-radius: 10px;
     font-weight: bold;
-    color: #727272; 
- }
-
-.actionInput__inputContainer .form-control:focus{
-box-shadow: none;
-border-color: gray;
+    color: #727272;
 }
+
+.actionInput__inputContainer .form-control:focus {
+    box-shadow: none;
+    border-color: gray;
+}
+
 .actionInput__inputContainer input::placeholder {
-    color:rgba(151, 151, 151, 0.625273)
+    color: rgba(151, 151, 151, 0.625273)
 }
 
 .actionInput__text {
     margin-bottom: 0.5rem;
 }
 
-.actionInput {
-    
-}
+/* .actionInput {   } */
 
 .actionItems {
     height: 200px;
@@ -63,4 +67,28 @@ border-color: gray;
     height: 40px;
     background-color: gray;
     margin: 3px;
+}
+
+.actionInput__suggestions {
+    margin-top: 0.5rem;
+}
+
+.actionInput__suggestions button {
+    border-width: 3px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.actionInput__suggestions .btn-outline-dark {
+    color: rgba(151, 151, 151, 0.63);
+    border-color: rgba(151, 151, 151, 0.63);
+}
+
+.actionInput__suggestions .btn-outline-dark:hover {
+    background-color: rgba(151, 151, 151, 0.63);
+    color: white;
+}
+
+.actionInput__suggestions .btn-outline-dark:focus {
+    box-shadow: none;
 }

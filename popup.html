@@ -1,59 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>To-Done Application</title>
-    <link rel="stylesheet" href="packages/bootstrap.min.css"> 
+    <link rel="stylesheet" href="packages/bootstrap.min.css">
     <link rel="stylesheet" href="popup.css">
 </head>
-<body>
-     <div class="container-fluid main">
-        <div class="row"> 
-            <div class="col greeting">
-                 <h2 class="greeting__type"> Good Morning, </h2>
-                 <h2 class="greeting__name"> Christian</h2>
-                 <img src="/images/good-morning.png" id="greeting__image" /> 
-            </div>
-        </div>
-        <div class="row"> 
-            <div class="col progressContainer">
-                 <div id="container">
 
-                 </div>
+<body>
+    <div class="container-fluid main">
+        <div class="row">
+            <div class="col greeting">
+                <h2 class="greeting__type"> Good Morning, </h2>
+                <h2 class="greeting__name"> Christian</h2>
+                <img src="/images/good-morning.png" id="greeting__image" />
             </div>
         </div>
-        <div class="row"> 
+        <div class="row">
+            <div class="col progressContainer">
+                <div id="container">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col actionInput">
                 <h5 class="actionInput__text">Today's Plan of Action</h5>
-                <div class="actionInput__inputContainer"> 
-
+                <div class="actionInput__inputContainer">
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control" placeholder="add Action Item, press Enter">
-                      </div>
-                      </div>
+                    </div>
+                    <div class="actionInput__suggestions">
+                        <button type="button" class="btn btn-outline-dark btn-sm">Gym</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm">Link site for later</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm">Mediation</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row"> 
+        <div class="row">
             <div class="col actionItems">
-                 <div class="actionItem__item">
-
-                 </div>
-                 <div class="actionItem__item">
+                <div class="actionItem__item">
 
                 </div>
+          
                 <div class="actionItem__item">
 
                 </div>
                 <div class="actionItem__item">
 
                 </div>
-               
+                <div class="actionItem__item">
+
+                </div>
+
             </div>
         </div>
-     </div>
+    </div>
 
     <script src="/packages/jquery-3.5.1.min.js"></script>
     <script src="/packages/bootstrap.min.js"></script>
     <script src="/packages/progressbar.js"></script>
     <script src="/js/script.js"></script>
 </body>
+
 </html>
