@@ -70,29 +70,33 @@ body {
 }
 
 .actionItem__main {
-    display: flex; 
+    display: flex;
     align-items: center;
 }
+
 .actionItem__checkBox {
-border: 3px solid rgba(151, 151, 151, 0.27);
-width: 30px;
-height: 30px;
-border-radius: 6px;
-display: flex;
-align-items: center;
-justify-content: center;
+    border: 3px solid rgba(151, 151, 151, 0.27);
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .actionItem__checkBox i {
-color: #56e452; 
+    color: #56e452;
 }
+
 .actionItem__text {
     flex: 1;
     word-break: break-word;
     text-align: center;
-    color:#727272;
+    color: #727272;
     font-weight: bold;
     font-size: 18px;
 }
+
 .actionItem__checkBox {
     border: 3px solid rgba(151, 151, 151, 0.27);
     width: 30px;
@@ -102,6 +106,7 @@ color: #56e452;
     justify-content: center;
     align-items: center;
 }
+
 .actionItem__check {
     width: 40px;
     display: flex;
@@ -116,6 +121,7 @@ color: #56e452;
     font-size: 20px;
     cursor: pointer;
 }
+
 .actionInput__suggestions {
     margin-top: 0.5rem;
 }

@@ -5,7 +5,7 @@
     <title>To-Done Application</title>
     <link rel="stylesheet" href="packages/bootstrap.min.css">
     <link rel="stylesheet" href="popup.css">
-    
+
 </head>
 
 <body>
@@ -28,9 +28,11 @@
             <div class="col actionInput">
                 <h5 class="actionInput__text">Today's Plan of Action</h5>
                 <div class="actionInput__inputContainer">
-                    <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" placeholder="add Action Item, press Enter">
-                    </div>
+                    <form id="addItemForm">
+                        <div class="input-group input-group-lg">
+                            <input name="itemText" type="text" class="form-control" placeholder="add Action Item, press Enter">
+                        </div>
+                    </form>
                     <div class="actionInput__suggestions">
                         <button type="button" class="btn btn-outline-dark btn-sm">Gym</button>
                         <button type="button" class="btn btn-outline-dark btn-sm">Link site for later</button>
@@ -43,16 +45,16 @@
             <div class="col actionItems">
                 <div class="actionItem__item">
                     <div class="actionItem__main">
-                        <div class="actionItem__check"> 
+                        <div class="actionItem__check">
                             <div class="actionItem__checkBox">
-                            <i class="fas fa-check" aria-hidden="true"></i>
-                            </div> 
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                            </div>
                         </div>
                         <div class="actionItem__text"> Start Module 2</div>
                         <div class="actionItem__delete"><i class="fas fa-times"></i></div>
                     </div>
                 </div>
-          
+
                 <div class="actionItem__item">
 
                 </div>

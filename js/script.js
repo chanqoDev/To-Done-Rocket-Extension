@@ -1,3 +1,44 @@
+let addItemForm = document.querySelector("#addItemForm");
+let itemsList = document.querySelector(".actionItems");
+
+addItemForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let itemText = addItemForm.elements.namedItem("itemText").value;
+  // prevent empty forms
+  if (itemText) {
+    renderActionItem(itemText);
+    // reset the form
+    addItemForm.elements.namedItem("itemText").value = "";
+  }
+});
+
+const renderActionItem = (text) => {
+  let element = document.createElement("div");
+  element.classList.add("actionItem__item");
+  let mainElement = document.createElement("div");
+  mainElement.classList.add("actionItem__main");
+  let checkEl = document.createElement("div");
+  checkEl.classList.add("actionItem__check");
+  let textEl = document.createElement("div");
+  textEl.classList.add("actionItem__text");
+  let deleteEl = document.createElement("div");
+  deleteEl.classList.add("actionItem__delete");
+
+  checkEl.innerHTML = `
+  <div class="actionItem__checkBox">
+            <i class="fas fa-check" aria-hidden="true"></i>
+        </div>
+  `;
+
+  textEl.textContent = text;
+  deleteEl.innerHTML = `<i class="fas fa-times aria-hidden="true">`;
+  mainElement.appendChild(checkEl);
+  mainElement.appendChild(textEl);
+  mainElement.appendChild(deleteEl);
+  element.appendChild(mainElement);
+  itemsList.prepend(element);
+};
+
 // progressbar.js@1.0.0 version is used
 // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
 
