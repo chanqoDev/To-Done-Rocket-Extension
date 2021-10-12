@@ -1,114 +1,258 @@
-let addItemForm = document.querySelector("#addItemForm");
 let itemsList = document.querySelector(".actionItems");
+let addItemForm = document.querySelector("#addItemForm");
 let storage = chrome.storage.sync;
 
-storage.get(["actionItems"], (data) => {
+const setUsersName = (savedName) => {
+  let name = savedName ? savedName : "Add Name";
+  document.querySelector(".name__value").innerText = name;
+};
+
+storage.get(["actionItems", "name"], (data) => {
   let actionItems = data.actionItems;
+  setUsersName(data.name);
+  setGreeting();
+  setGreetingImage();
   renderActionItems(actionItems);
+  ActionItems.setProgress();
+  createQuickActionListener();
+  createUpdateNameListener();
+  createUpdateNameDialogListener();
+  chrome.storage.onChanged.addListener(() => {
+    ActionItems.setProgress();
+  });
 });
+
 const renderActionItems = (actionItems) => {
-  actionItems.forEach((item) => {
-    renderActionItem(item.text);
+  sortedActionItems = sortFilterActionItems(actionItems);
+  sortedActionItems.forEach((doc) => {
+    renderActionItem(doc);
+  });
+  storage.set({
+    actionItems: sortedActionItems,
   });
 };
 
-const add = (text) => {
-  let actionItem = {
-    id: 1,
-    date: new Date().toString(),
-    text: text,
-    completed: null,
-  };
-
-  chrome.storage.sync.get(["actionItems"], (data) => {
-    let items = data.actionItems; // we retrieve the data
-    if (!items) {
-      items = [actionItem];
-    } else {
-      items.push(actionItem);
+const sortFilterActionItems = (actionItems) => {
+  var currentDate = new Date(); // Datetime now
+  currentDate.setHours(0, 0, 0, 0); // Midnight today 00:00:00.000
+  const filteredItems = actionItems.filter((item) => {
+    if (item.completed) {
+      const completedDate = new Date(item.completed);
+      if (completedDate < currentDate) {
+        return false;
+      }
     }
-    chrome.storage.sync.set(
-      {
-        actionItems: items,
-      },
-      () => {
-        chrome.storage.sync.get(["actionItems"], (data) => {
-          console.log(data);
-        });
+    return true;
+  });
+  const sortedItems = filteredItems.sort((a, b) => {
+    const bDate = new Date(b.added);
+    const aDate = new Date(a.added);
+    return aDate - bDate;
+  });
+  return sortedItems;
+};
+
+const handleQuickActionListener = (e) => {
+  const text = e.target.getAttribute("data-text");
+  const id = e.target.getAttribute("data-id");
+  getCurrentTab().then((tab) => {
+    ActionItems.addQuickActionItem(id, text, tab, renderActionItem);
+  });
+};
+
+async function getCurrentTab() {
+  return await new Promise((resolve, reject) => {
+    chrome.tabs.query(
+      { active: true, windowId: chrome.windows.WINDOW_ID_CURRENT },
+      function (tabs) {
+        resolve(tabs[0]);
       }
     );
+  });
+}
+
+const createUpdateNameDialogListener = () => {
+  let greetingName = document.querySelector(".greeting__name");
+  let currentName = document.querySelector(".name__value").innerText;
+  greetingName.addEventListener("click", () => {
+    document.getElementById("input__name").value = currentName;
+    $("#updateNameModal").modal("show");
+  });
+};
+
+const createQuickActionListener = () => {
+  let quickActionButtons = document.querySelectorAll(".quick-action");
+  quickActionButtons.forEach((quickActionButton) => {
+    quickActionButton.addEventListener("click", handleQuickActionListener);
   });
 };
 
 addItemForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  let itemText = addItemForm.elements.namedItem("itemText").value;
-
-  // prevent empty forms
-  if (itemText) {
-    add(itemText);
-    renderActionItem(itemText);
-    // reset the form
-    addItemForm.elements.namedItem("itemText").value = "";
+  let actionText = addItemForm.itemText.value;
+  if (actionText) {
+    let actionItem = {
+      id: uuidv4(),
+      added: new Date().toString(),
+      completed: null,
+      text: addItemForm.itemText.value,
+      website: null,
+    };
+    ActionItems.add(actionItem, () => {
+      renderActionItem(actionItem, 250);
+    });
+    addItemForm.itemText.value = "";
   }
 });
 
-const renderActionItem = (text) => {
+const handleCompletedEventListener = (e) => {
+  const id = e.target.parentElement.parentElement.getAttribute("data-id");
+  const parent = e.target.parentElement.parentElement;
+  if (parent.classList.contains("completed")) {
+    ActionItems.markUnmarkCompleted(id, null);
+    parent.classList.remove("completed");
+  } else {
+    ActionItems.markUnmarkCompleted(id, new Date().toString());
+    parent.classList.add("completed");
+  }
+};
+
+const handleDeleteEventListener = (e) => {
+  const id = e.target.parentElement.parentElement.getAttribute("data-id");
+  let jElement = $(`div[data-id="${id}"]`);
+  ActionItems.remove(id, () => {
+    animateUp(jElement);
+  });
+};
+
+const createUpdateNameListener = () => {
+  const element = document.querySelector("#update-name");
+  element.addEventListener("click", handleUpdateName);
+};
+
+const handleUpdateName = () => {
+  const name = document.getElementById("input__name").value;
+  if (name) {
+    ActionItems.saveName(name, () => {
+      setUsersName(name);
+    });
+    $("#updateNameModal").modal("hide");
+  }
+};
+
+const renderActionItem = (item, animateDuration = 500) => {
   let element = document.createElement("div");
-  element.classList.add("actionItem__item");
   let mainElement = document.createElement("div");
-  mainElement.classList.add("actionItem__main");
-  let checkEl = document.createElement("div");
-  checkEl.classList.add("actionItem__check");
-  let textEl = document.createElement("div");
-  textEl.classList.add("actionItem__text");
   let deleteEl = document.createElement("div");
+  let checkEl = document.createElement("div");
+  let textEl = document.createElement("div");
+  mainElement.classList.add("actionItem__main");
+  element.classList.add("actionItem__item");
   deleteEl.classList.add("actionItem__delete");
-
-  checkEl.innerHTML = `
-  <div class="actionItem__checkBox">
-            <i class="fas fa-check" aria-hidden="true"></i>
-        </div>
-  `;
-
-  textEl.textContent = text;
-  deleteEl.innerHTML = `<i class="fas fa-times aria-hidden="true">`;
+  checkEl.classList.add("actionItem__check");
+  textEl.classList.add("actionItem__text");
+  if (item.completed) {
+    element.classList.add("completed");
+  }
+  checkEl.addEventListener("click", handleCompletedEventListener);
+  element.setAttribute("data-id", item.id);
+  deleteEl.innerHTML = `<i class="fas fa-times"></i>`;
+  checkEl.innerHTML = ` 
+      <div class="actionItem__checkBox">
+        <i class="fas fa-check"></i>
+      </div>`;
+  deleteEl.addEventListener("click", handleDeleteEventListener);
+  textEl.textContent = item.text;
   mainElement.appendChild(checkEl);
   mainElement.appendChild(textEl);
   mainElement.appendChild(deleteEl);
   element.appendChild(mainElement);
+  if (item.website) {
+    const link = createLinkContainer(
+      item.website.url,
+      item.website["fav_icon"],
+      item.website.title
+    );
+    element.appendChild(link);
+  }
   itemsList.prepend(element);
+  let jElement = $(`div[data-id="${item.id}"]`);
+  animateDown(jElement, animateDuration);
 };
 
-// progressbar.js@1.0.0 version is used
-// Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
-
-var circle = new ProgressBar.Circle("#container", {
-  color: "#010101",
-  // This has to be the same size as the maximum width to
-  // prevent clipping
-  strokeWidth: 6,
-  trailWidth: 2,
-  easing: "easeInOut",
-  duration: 1400,
-  text: {
-    autoStyleContainer: false,
-  },
-  from: { color: "#7fdf67", width: 2 },
-  to: { color: "#7fdf67", width: 6 },
-  // Set default step function for all animate calls
-  step: function (state, circle) {
-    circle.path.setAttribute("stroke", state.color);
-    circle.path.setAttribute("stroke-width", state.width);
-
-    var value = Math.round(circle.value() * 100);
-    if (value === 0) {
-      circle.setText("");
-    } else {
-      circle.setText(value);
+const animateUp = (element) => {
+  let height = element.innerHeight();
+  element.animate(
+    {
+      opacity: "0",
+      marginTop: `-${height}px`,
+    },
+    {
+      duration: 250,
+      done: () => {
+        element.remove();
+      },
     }
-  },
-});
-circle.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-circle.text.style.fontSize = "2rem";
-circle.animate(1.0); // Number from 0.0 to 1.0
+  );
+};
+
+const animateDown = (element, duration) => {
+  let height = element.innerHeight();
+  element.css({ marginTop: `-${height}px`, opacity: 0 }).animate(
+    {
+      opacity: "1",
+      marginTop: `12px`,
+    },
+    {
+      duration: duration,
+    }
+  );
+};
+
+const createLinkContainer = (url, favIcon, title) => {
+  let element = document.createElement("div");
+  element.classList.add("actionItem__linkContainer");
+  element.innerHTML = `              
+    <a href="${url}" target="_blank">
+      <div class="actionItem__link">
+        <div class="actionItem__favIcon">
+          <img src="${favIcon}">
+        </div>
+        <div class="actionItem__title">
+          <span>${title}</span>
+        </div>
+      </div>
+    </a>`;
+  return element;
+};
+
+const setGreetingImage = () => {
+  const image = document.getElementById("greeting__image");
+  const date = new Date();
+  const hours = date.getHours();
+  if (hours >= 5 && hours <= 11) {
+    image.src = "./images/good-morning.png";
+  } else if (hours >= 12 && hours <= 16) {
+    image.src = "./images/good-afternoon.png";
+  } else if (hours >= 17 && hours <= 20) {
+    image.src = "./images/good-evening.png";
+  } else {
+    image.src = "./images/good-night.png";
+  }
+};
+
+const setGreeting = () => {
+  let greeting = "Good ";
+  const date = new Date();
+  const hours = date.getHours();
+  if (hours >= 5 && hours <= 11) {
+    greeting += "Morning,";
+  } else if (hours >= 12 && hours <= 16) {
+    greeting += "Afternoon,";
+  } else if (hours >= 17 && hours <= 20) {
+    greeting += "Evening,";
+  } else {
+    greeting += "Night,";
+  }
+  document.querySelector(".greeting__type").innerText = greeting;
+};
