@@ -70,10 +70,16 @@ body {
     padding: 1rem;
     margin-top: 12px;
 }
-
+.actionItem__item.completed {
+background: #b0f1ab;
+}
 .actionItem__main {
     display: flex;
     align-items: center;
+}
+
+.actionItem__item.completed .actionItem__checkBox {
+ border-color: #56e452;
 }
 
 .actionItem__checkBox {
