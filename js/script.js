@@ -1,11 +1,41 @@
 let addItemForm = document.querySelector("#addItemForm");
 let itemsList = document.querySelector(".actionItems");
 
+const add = (text) => {
+  let actionItem = {
+    id: 1,
+    date: new Date().toString(),
+    text: text,
+    completed: null,
+  };
+
+  chrome.storage.sync.get(["actionItems"], (data) => {
+    let items = data.actionItems; // we retrieve the data
+    if (!items) {
+      items = [actionItem];
+    } else {
+      items.push(actionItem);
+    }
+    chrome.storage.sync.set(
+      {
+        actionItems: items,
+      },
+      () => {
+        chrome.storage.sync.get(["actionItems"], (data) => {
+          console.log(data);
+        });
+      }
+    );
+  });
+};
+
 addItemForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let itemText = addItemForm.elements.namedItem("itemText").value;
+
   // prevent empty forms
   if (itemText) {
+    add(itemText);
     renderActionItem(itemText);
     // reset the form
     addItemForm.elements.namedItem("itemText").value = "";
