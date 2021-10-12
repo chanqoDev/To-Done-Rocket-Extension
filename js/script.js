@@ -1,5 +1,16 @@
 let addItemForm = document.querySelector("#addItemForm");
 let itemsList = document.querySelector(".actionItems");
+let storage = chrome.storage.sync;
+
+storage.get(["actionItems"], (data) => {
+  let actionItems = data.actionItems;
+  renderActionItems(actionItems);
+});
+const renderActionItems = (actionItems) => {
+  actionItems.forEach((item) => {
+    renderActionItem(item.text);
+  });
+};
 
 const add = (text) => {
   let actionItem = {
