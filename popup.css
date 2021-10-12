@@ -1,6 +1,7 @@
 body {
     width: 450px;
-    height: 562px;
+    min-height: 562px;
+    padding: 12px 12px 27px 12px; 
 }
 
 .greeting img {
@@ -9,6 +10,7 @@ body {
     z-index: 10;
     top: -50px;
     right: -50px;
+    filter: drop-shadow(2px 0px 4px #222);
 }
 
 .greeting__type {
