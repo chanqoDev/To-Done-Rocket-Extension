@@ -30,8 +30,8 @@ body {
 .greeting img {
     position: absolute;
     height: 180px;
-    top: -50px;
-    right: -50px;
+    top: -20px;
+    right: -45px;
     filter: drop-shadow(2px 0px 4px #222);
 }
 
