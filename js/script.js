@@ -80,6 +80,16 @@ const createUpdateNameDialogListener = () => {
   });
 };
 
+// saved website edit text
+// const createUpdateNameDialogListener = () => {
+//   let greetingName = document.querySelector(".greeting__name");
+//   let currentName = document.querySelector(".name__value").innerText;
+//   greetingName.addEventListener("click", () => {
+//     document.getElementById("input__name").value = currentName;
+//     $("#updateNameModal").modal("show");
+//   });
+// };
+
 const createQuickActionListener = () => {
   let quickActionButtons = document.querySelectorAll(".quick-action");
   quickActionButtons.forEach((quickActionButton) => {
