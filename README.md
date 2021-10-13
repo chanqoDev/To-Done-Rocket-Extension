@@ -11,6 +11,7 @@
 - completed task automatically deleted after 24 hours from the time of completion.
 - Easily Remove the task
 
-| First Header | Second Header | Second Header |
 | ------------ | ------------- | ------------- |
-| Content Cell | Content Cell  | ------------- |
+| - [ ] | Gym | x |
+| ------------ | ------------- | ------------- |
+| - [x] | Figma Tutorial | x |
