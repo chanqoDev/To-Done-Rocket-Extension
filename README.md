@@ -31,4 +31,4 @@ Save in local Repository.
 | - [x] | Figma Tutorial | x   |
 
 
-Markup : ![picture alt](https://i.imgur.com/BlAat1F.png/200x150 "Title is optional")
+![Todo App Image](https://i.imgur.com/BlAat1F.png/200x150 "Todo Rocket Planner banner")
