@@ -28,6 +28,7 @@ body {
 }x
 
 .greeting img {
+    
     position: absolute;
     height: 180px;
     top: -20px;
@@ -43,6 +44,14 @@ body {
     font-size: 1.8rem;
 }
 
+.img {
+    position: absolute;
+    height: 180px;
+    top: -20px;
+    right: -44px;
+    filter: drop-shadow(2px 0px 4px #222);
+    border-radius: 18%;
+}
 .greeting__name {
     margin-bottom: 0;
     color: #6c757d;
