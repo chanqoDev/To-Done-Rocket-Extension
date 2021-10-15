@@ -31,8 +31,9 @@ body {
     position: absolute;
     height: 180px;
     top: -20px;
-    right: -45px;
+    right: -44px;
     filter: drop-shadow(2px 0px 4px #222);
+    border-radius: 18%;
 }
 
 .greeting__type {
