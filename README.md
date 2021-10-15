@@ -29,3 +29,6 @@ Save in local Repository.
 | - [ ] | Gym            | x   |
 | ----- | -------------- | --- |
 | - [x] | Figma Tutorial | x   |
+
+
+![Todo App Image](https://i.imgur.com/BlAat1F.png/200x150 "Todo Rocket Planner banner")
