@@ -24,11 +24,11 @@ Save in local Repository.
 
 - Easily Remove the task
 
-| ---------------------------------------------------------------------------------------------- |
+- - - -
 
 | - [ ] | Gym            | x   |
 | ----- | -------------- | --- |
 | - [x] | Figma Tutorial | x   |
 
 
-![Todo App Image](https://i.imgur.com/BlAat1F.png/200x150 "Todo Rocket Planner banner")
+[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/b0c897b19545d29652decb34c522cd5da9cd6400/images/bannerImage.png">]()
