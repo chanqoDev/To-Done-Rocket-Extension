@@ -1,5 +1,10 @@
 # To-Done Rocket Planner a Chrome Extenstion
 
+
+Try it out here: https://chrome.google.com/webstore/detail/to-done-rocket-planner/nnmfajngjkedfjodhldodbbnmbdjkchk?hl=en-US&authuser=0
+
+
+
 ## HOW TO INSTALL
 
 Save in local Repository.
