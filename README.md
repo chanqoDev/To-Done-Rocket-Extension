@@ -30,10 +30,6 @@ Save in local Repository.
 
 - Easily Remove the task
 
----
-
-| - [ ] | Gym            | x   |
-| ----- | -------------- | --- |
-| - [x] | Figma Tutorial | x   |
-
 [<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/b0c897b19545d29652decb34c522cd5da9cd6400/images/bannerImage.png">]()
+
+[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/b0c897b19545d29652decb34c522cd5da9cd6400/images/add1.png">]()
