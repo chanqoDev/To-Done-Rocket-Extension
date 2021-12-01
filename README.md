@@ -1,9 +1,6 @@
 # To-Done Rocket Planner a Chrome Extenstion
 
-
 Try it out here: https://chrome.google.com/webstore/detail/to-done-rocket-planner/nnmfajngjkedfjodhldodbbnmbdjkchk?hl=en-US&authuser=0
-
-
 
 ## HOW TO INSTALL
 
@@ -19,6 +16,10 @@ Save in local Repository.
 
 - preset+ buttons for Gym & Medition for easy add on daily.
 
+- Capture link from current tab for "link site for later"
+
+- Greeting is set depending on time of the day.
+
 - Save websites links incase you need to access to study later, sets as todo for later to revisit.
 
 - add task that need to get done.
@@ -29,11 +30,10 @@ Save in local Repository.
 
 - Easily Remove the task
 
-- - - -
+---
 
 | - [ ] | Gym            | x   |
 | ----- | -------------- | --- |
 | - [x] | Figma Tutorial | x   |
-
 
 [<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/b0c897b19545d29652decb34c522cd5da9cd6400/images/bannerImage.png">]()
