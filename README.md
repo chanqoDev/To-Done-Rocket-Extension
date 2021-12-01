@@ -36,8 +36,8 @@ Save in local Repository.
 
 [<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/4245c88f6f93c79011a6e19357e29a2bc4af0daa/images/add1.png">]()
 
-[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/4245c88f6f93c79011a6e19357e29a2bc4af0daa/images/add1.png">]()
+[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/d6932d2227cd05ac61875318761530ef442057b4/images/permissions.png">]()
 
-[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/4245c88f6f93c79011a6e19357e29a2bc4af0daa/images/add1.png">]()
+[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/d6932d2227cd05ac61875318761530ef442057b4/images/3.png">]()
 
-[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/4245c88f6f93c79011a6e19357e29a2bc4af0daa/images/add1.png">]()
+[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/d6932d2227cd05ac61875318761530ef442057b4/images/4.png">]()
