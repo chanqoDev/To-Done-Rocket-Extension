@@ -32,4 +32,12 @@ Save in local Repository.
 
 [<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/b0c897b19545d29652decb34c522cd5da9cd6400/images/bannerImage.png">]()
 
-[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/b0c897b19545d29652decb34c522cd5da9cd6400/images/add1.png">]()
+### How to install in Chrome Browser in 3 easy steps!
+
+[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/4245c88f6f93c79011a6e19357e29a2bc4af0daa/images/add1.png">]()
+
+[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/4245c88f6f93c79011a6e19357e29a2bc4af0daa/images/add1.png">]()
+
+[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/4245c88f6f93c79011a6e19357e29a2bc4af0daa/images/add1.png">]()
+
+[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/4245c88f6f93c79011a6e19357e29a2bc4af0daa/images/add1.png">]()
