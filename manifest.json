@@ -1,7 +1,7 @@
 {
     "name": "To-Done Rocket Planner",
     "version": "1.1",
-    "description": "The best way to plan your day and motivate you to take action!",
+    "description": "A convenient To-do list, available right in your Chrome Browser",
     "permissions": [
         "storage",
         "contextMenus",
