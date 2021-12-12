@@ -1,6 +1,6 @@
 {
     "name": "To-Done Rocket Planner",
-    "version": "1.1",
+    "version": "1.2",
     "description": "A convenient To-do list, available right in your Chrome Browser",
     "permissions": [
         "storage",
