@@ -1,4 +1,6 @@
-# To-Done Rocket Planner a Chrome Extenstion
+⚠️ Note: This project uses Chrome Extension Manifest V2, which is now deprecated. It is kept for demonstration of architecture and functionality.
+
+## To-Done Rocket Planner a Chrome Extenstion
 
 Try it out here: https://chrome.google.com/webstore/detail/to-done-rocket-planner/nnmfajngjkedfjodhldodbbnmbdjkchk?hl=en-US&authuser=0
 
