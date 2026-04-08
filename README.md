@@ -1,45 +1,66 @@
 ⚠️ Note: This project uses Chrome Extension Manifest V2, which is now deprecated. It is kept for demonstration of architecture and functionality.
 
-## To-Done Rocket Planner a Chrome Extenstion
+# Chrome Productivity Extension (To-Done Rocket)
 
-Try it out here: https://chrome.google.com/webstore/detail/to-done-rocket-planner/nnmfajngjkedfjodhldodbbnmbdjkchk?hl=en-US&authuser=0
+⚠️ Note: This project uses Chrome Extension Manifest V2 (deprecated). It is maintained to demonstrate extension architecture, browser APIs, and task management logic. Migration to Manifest V3 is planned.
 
-## HOW TO INSTALL
+---
 
-Save in local Repository.
+## Overview
+A productivity-focused Chrome extension that enables users to manage tasks, track progress, and capture resources directly from the browser. The project demonstrates practical use of Chrome Extension APIs, local state persistence, and event-driven UI updates.
 
-- <sup> git clone git@github.com:chanqoDev/To-Done-Rocket-Extension.git </sup>
+---
 
-### Productive Planner Features
+## Features
+- Task management (create, complete, delete)
+- Progress tracking with completion percentage
+- Quick-add presets (e.g., gym, meditation)
+- Capture current browser tab as a task
+- Time-based dynamic greeting
+- Automatic removal of completed tasks after 24 hours
 
-- Stay intentional and productive with a Plan of Action based planner.
+---
 
-- A progress bar to Keep Track with all your todo's until 100% completion.
+## Tech Stack
+- JavaScript (ES6+)
+- Chrome Extension APIs
+- HTML / CSS
 
-- preset+ buttons for Gym & Medition for easy add on daily.
+---
 
-- Capture link from current tab for "link site for later"
+## Architecture
+- **Chrome Extension APIs** for tab access and runtime interaction  
+- **Local Storage API** for persistent task management  
+- **Event-driven UI updates** based on user actions  
+- Modular structure separating task logic and UI rendering  
 
-- Greeting is set depending on time of the day.
+---
 
-- Save websites links incase you need to access to study later, sets as todo for later to revisit.
+## Installation
 
-- add task that need to get done.
+Clone the repository:
+```bash
+git clone git@github.com:chanqoDev/To-Done-Rocket-Extension.git
+```
 
-- complete the task.
+Load into Chrome:
 
-- completed task automatically deleted after 24 hours from the time of completion.
+Open chrome://extensions/
+Enable Developer Mode
+Click Load unpacked
+Select the project directory
 
-- Easily Remove the task
+## Live Extension
 
-[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/b0c897b19545d29652decb34c522cd5da9cd6400/images/bannerImage.png">]()
+https://chrome.google.com/webstore/detail/to-done-rocket-planner/nnmfajngjkedfjodhldodbbnmbdjkchk
 
-### How to install in Chrome Browser in 3 easy steps!
+### Highlights
+Built a fully functional Chrome extension using browser APIs
+Implemented persistent task state with lifecycle management
+Integrated browser context (tabs) into a productivity workflow
 
-[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/4245c88f6f93c79011a6e19357e29a2bc4af0daa/images/add1.png">]()
-
-[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/d6932d2227cd05ac61875318761530ef442057b4/images/permissions.png">]()
-
-[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/d6932d2227cd05ac61875318761530ef442057b4/images/3.png">]()
-
-[<img src="https://github.com/chanqoDev/To-Done-Rocket-Extension/blob/d6932d2227cd05ac61875318761530ef442057b4/images/4.png">]()
+### Future Improvements
+Migrate to Manifest V3
+Add cloud sync for cross-device persistence
+Improve UI/UX and performance
+Introduce task categorization and filtering
